@@ -3,7 +3,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchExchangeRate = createAsyncThunk(
   "fetchExchangeRate",
   async (id) => {
-    const res = await fetch(`http://localhost:3000/api/userss/${id}/cart`);
+    const res = await fetch(
+      `https://onlineshopbyearl-bg3t5si85-bluesky140506.vercel.app/api/userss/${id}/cart`
+    );
     return res.json();
   }
 );
