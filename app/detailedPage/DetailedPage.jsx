@@ -223,7 +223,7 @@ export default function DetailedPage({ info }) {
       console.log("try");
       try {
         const response = await fetch(
-          "https://onlineshopbyearl-bluesky140506.vercel.appa/api/cart/new",
+          "https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/new",
           {
             method: "POST",
             body: JSON.stringify({
