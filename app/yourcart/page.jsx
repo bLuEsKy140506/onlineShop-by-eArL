@@ -492,7 +492,7 @@ const Cart = () => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        onClick={() => incrementItemTemp(item._id)}
+                        onClick={() => incrementItemTemp(item)}
                         className="w-10 h-10 bg-white rounded-md p-2 inline-flex items-center justify-center text-blue-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                       >
                         <path
@@ -512,7 +512,7 @@ const Cart = () => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        onClick={() => decrementItemTemp()}
+                        onClick={() => decrementItemTemp(item)}
                         className="w-10 h-10 bg-white rounded-lg p-2 inline-flex items-center justify-center text-blue-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                       >
                         <path
