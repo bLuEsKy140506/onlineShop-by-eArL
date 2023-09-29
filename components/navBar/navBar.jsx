@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import InitiatorPathAndExchangeRate from "../initiators/InitiatorPathAndExRate";
 import CartCounterDisplay from "./zCartCounterDisplay";
-import { useAuth0 } from "@auth0/auth0-react";
+
 export default function NavBar() {
   return (
     <>
