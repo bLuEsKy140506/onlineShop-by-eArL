@@ -4,7 +4,7 @@ export const fetchExchangeRate = createAsyncThunk(
   "fetchExchangeRate",
   async (id) => {
     const res = await fetch(
-      `https://onlineshopbyearl-bg3t5si85-bluesky140506.vercel.app/api/userss/${id}/cart`
+      `https://onlineshopbyearl-git-master-bluesky140506.vercel.app/api/userss/${id}/cart`
     );
     return res.json();
   }
