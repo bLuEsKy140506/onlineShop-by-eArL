@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCartItems = createAsyncThunk("fetchCartItems", async (id) => {
-  const res = await fetch(`http://localhost:3000/api/userss/${id}/cart`);
+  const res = await fetch(`http://localhost:3000/api/userss/${id}/cart`, {
+    mode: "no-cors",
+  });
   return res.json();
 });
 

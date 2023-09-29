@@ -5,6 +5,7 @@ export const fetchCartArray = createAsyncThunk("fetchCartArray", async (id) => {
     `https://onlineshopbyearl-bg3t5si85-bluesky140506.vercel.app/api/userss/${id}/cart`,
     {
       cache: "no-store",
+      mode: "no-cors",
     }
   );
   let response = res.json();
