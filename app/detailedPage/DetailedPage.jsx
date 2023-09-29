@@ -64,7 +64,9 @@ export default function DetailedPage({ info }) {
   //USE EFFECT SECTION ------------------------------------------------------------------------------------------------------------
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/userss/${session?.user.id}/cart`);
+      const response = await fetch(
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${session?.user.id}/cart`
+      );
       const data = await response.json();
 
       setMyPosts(data);
@@ -96,6 +98,7 @@ export default function DetailedPage({ info }) {
   useEffect(() => {
     if (session?.user.id) {
       dispatch(fetchCartArray(session?.user.id));
+      dispatch(fetchCartItems(session?.user.id));
     }
 
     if (session?.user.id && items !== undefined) {

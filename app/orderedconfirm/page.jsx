@@ -38,7 +38,7 @@ const MyConfirmedItems = () => {
   sign = symbols[name];
   console.log(myPosts);
   return (
-    <>
+    <div className="cart-container">
       {myPosts?.length === 0 && (
         <div style={{ height: "85vh", textAlign: "center" }}>
           <br />
@@ -130,7 +130,7 @@ const MyConfirmedItems = () => {
             ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 

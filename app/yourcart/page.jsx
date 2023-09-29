@@ -263,18 +263,21 @@ const Cart = () => {
     const currentDate = new Date();
     const timestamp = currentDate.getTime();
     try {
-      const response = await fetch("/api/ordered/new", {
-        method: "POST",
-        body: JSON.stringify({
-          userId: session?.user.id,
-          items: items,
-          currency: {
-            name: name,
-            rate: rate,
-          },
-          timestamp: timestamp,
-        }),
-      });
+      const response = await fetch(
+        "https://onlineshopbyearl-bluesky140506.vercel.app/api/ordered/new",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId: session?.user.id,
+            items: items,
+            currency: {
+              name: name,
+              rate: rate,
+            },
+            timestamp: timestamp,
+          }),
+        }
+      );
 
       if (response.ok) {
         dispatch(changeArrayConfirm(items));
@@ -283,7 +286,7 @@ const Cart = () => {
 
         try {
           const response = await fetch(
-            `http://localhost:3000/api/cart/${_id}`,
+            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
             {
               method: "DELETE",
             }

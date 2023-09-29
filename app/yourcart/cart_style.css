@@ -283,10 +283,10 @@
 
 @media screen and (max-width: 500px) {
   .cart-thumbnail-container img {
-    max-width: 55px;
-    max-height: 50px;
-    min-width: 55px;
-    min-height: 50px;
+    max-width: 75px;
+    max-height: 65px;
+    min-width: 75px;
+    min-height: 65px;
 
     border-radius: 10px;
     border: 1px solid #e9e9ea;

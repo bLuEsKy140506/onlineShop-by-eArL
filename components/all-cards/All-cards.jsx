@@ -44,6 +44,7 @@ export default function AllCard({ data }) {
   useEffect(() => {
     if (session?.user.id) {
       dispatch(fetchCartArray(session?.user.id));
+      dispatch(fetchCartItems(session?.user.id));
     }
   }, [counter, session?.user.id, dispatch]);
 
@@ -103,7 +104,7 @@ export default function AllCard({ data }) {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
             onClick={() => setccount(ccount + 6)}
           >
-            SHOW MORE
+            LOAD MORE
           </button>
         )}
       </div>

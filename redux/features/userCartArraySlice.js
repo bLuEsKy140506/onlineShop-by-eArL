@@ -53,7 +53,6 @@ export const cartArray = createSlice({
 
       if (action.payload[0] !== undefined && temp === null) {
         state = action.payload[0];
-
         return state;
       } else if (temp !== null && action.payload[0] !== undefined) {
         let merged = temp.concat(action.payload[0].items);
