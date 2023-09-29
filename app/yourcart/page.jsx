@@ -149,17 +149,20 @@ const Cart = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          creator: session?.user.id,
-          items: myCartClone,
-          currency: {
-            name: name,
-            rate: rate,
-          },
-        }),
-      });
+      const response = await fetch(
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            creator: session?.user.id,
+            items: myCartClone,
+            currency: {
+              name: name,
+              rate: rate,
+            },
+          }),
+        }
+      );
       if (response.ok) {
         updatedCart();
       }
@@ -178,17 +181,20 @@ const Cart = () => {
         quantity: myCartClone[index].quantity - 1,
       };
       try {
-        const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
-          method: "PUT",
-          body: JSON.stringify({
-            creator: session?.user.id,
-            items: myCartClone,
-            currency: {
-              name: name,
-              rate: rate,
-            },
-          }),
-        });
+        const response = await fetch(
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              creator: session?.user.id,
+              items: myCartClone,
+              currency: {
+                name: name,
+                rate: rate,
+              },
+            }),
+          }
+        );
         if (response.ok) {
           updatedCart();
         }
@@ -208,9 +214,12 @@ const Cart = () => {
 
     if (myCartClone.length === 0) {
       try {
-        const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (response.ok) {
           updatedCart("delete");
@@ -222,17 +231,20 @@ const Cart = () => {
       }
     } else {
       try {
-        const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
-          method: "PUT",
-          body: JSON.stringify({
-            creator: session?.user.id,
-            items: myCartClone,
-            currency: {
-              name: name,
-              rate: rate,
-            },
-          }),
-        });
+        const response = await fetch(
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              creator: session?.user.id,
+              items: myCartClone,
+              currency: {
+                name: name,
+                rate: rate,
+              },
+            }),
+          }
+        );
 
         if (response.ok) {
           updatedCart();

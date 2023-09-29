@@ -222,31 +222,34 @@ export default function DetailedPage({ info }) {
     if (items === undefined) {
       console.log("try");
       try {
-        const response = await fetch("/api/cart/new", {
-          method: "POST",
-          body: JSON.stringify({
-            userId: session?.user.id,
-            items: [
-              {
-                id,
-                title,
-                description,
-                price,
-                discountPercentage,
-                rating,
-                stock,
-                brand,
-                category,
-                thumbnail,
-                quantity: 1,
+        const response = await fetch(
+          "https://onlineshopbyearl-bluesky140506.vercel.appa/api/cart/new",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: session?.user.id,
+              items: [
+                {
+                  id,
+                  title,
+                  description,
+                  price,
+                  discountPercentage,
+                  rating,
+                  stock,
+                  brand,
+                  category,
+                  thumbnail,
+                  quantity: 1,
+                },
+              ],
+              currency: {
+                name: name,
+                rate: rate,
               },
-            ],
-            currency: {
-              name: name,
-              rate: rate,
-            },
-          }),
-        });
+            }),
+          }
+        );
 
         if (response.ok) {
           updatedCart();
@@ -257,32 +260,35 @@ export default function DetailedPage({ info }) {
       }
     } else {
       try {
-        const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
-          method: "PUT",
-          body: JSON.stringify({
-            creator: session?.user.id,
-            items: [
-              ...items,
-              {
-                id,
-                title,
-                description,
-                price,
-                discountPercentage,
-                rating,
-                stock,
-                brand,
-                category,
-                thumbnail,
-                quantity: 1,
+        const response = await fetch(
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              creator: session?.user.id,
+              items: [
+                ...items,
+                {
+                  id,
+                  title,
+                  description,
+                  price,
+                  discountPercentage,
+                  rating,
+                  stock,
+                  brand,
+                  category,
+                  thumbnail,
+                  quantity: 1,
+                },
+              ],
+              currency: {
+                name: name,
+                rate: rate,
               },
-            ],
-            currency: {
-              name: name,
-              rate: rate,
-            },
-          }),
-        });
+            }),
+          }
+        );
         if (response.ok) {
           updatedCart();
           setIsMatch(true);
@@ -300,17 +306,20 @@ export default function DetailedPage({ info }) {
       quantity: myCartClone[indexDB].quantity + 1,
     };
     try {
-      const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          creator: session?.user.id,
-          items: myCartClone,
-          currency: {
-            name: name,
-            rate: rate,
-          },
-        }),
-      });
+      const response = await fetch(
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            creator: session?.user.id,
+            items: myCartClone,
+            currency: {
+              name: name,
+              rate: rate,
+            },
+          }),
+        }
+      );
       if (response.ok) {
         updatedCart();
       }
@@ -334,7 +343,7 @@ export default function DetailedPage({ info }) {
 
     if (myCartClone.length === 0) {
       try {
-        const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
+        const response = await fetch(`/api/cart/${_id}`, {
           method: "DELETE",
         });
 
@@ -350,7 +359,7 @@ export default function DetailedPage({ info }) {
       isPresence = myCartClone.some((item) => item.title === info.title);
 
       try {
-        const response = await fetch(`http://localhost:3000/api/cart/${_id}`, {
+        const response = await fetch(`/api/cart/${_id}`, {
           method: "PUT",
           body: JSON.stringify({
             creator: session?.user.id,
