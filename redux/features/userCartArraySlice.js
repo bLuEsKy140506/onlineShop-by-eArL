@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCartArray = createAsyncThunk("fetchCartArray", async (id) => {
   const res = await fetch(
-    `https://onlineshopbyearl-git-master-bluesky140506.vercel.app/api/userss/${id}/cart`,
+    `https://onlineshopbyearl-bg3t5si85-bluesky140506.vercel.app/api/userss/${id}/cart`,
     {
       cache: "no-store",
     }
@@ -94,17 +94,14 @@ export const cartArray = createSlice({
         localStorage.removeItem("cartNotLogIn");
         return state;
       } else if (temp !== null && action.payload[0] === undefined) {
-        fetch(
-          "https://onlineshopbyearl-bg3t5si85-bluesky140506.vercel.app/api/cart/new",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              userId: action.meta.arg.toString(),
-              items: temp,
-              currency: initialRate,
-            }),
-          }
-        );
+        fetch("http://localhost:3000/api/cart/new", {
+          method: "POST",
+          body: JSON.stringify({
+            userId: action.meta.arg.toString(),
+            items: temp,
+            currency: initialRate,
+          }),
+        });
         state = [
           {
             creator: action.meta.arg.toString(),
