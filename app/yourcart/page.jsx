@@ -67,7 +67,7 @@ const Cart = () => {
       dispatch(fetchCartArray(session?.user.id));
       dispatch(fetchCartItems(session?.user.id));
     }
-  }, [counter, session?.user.id, dispatch]);
+  }, [counter, session?.user.id]);
 
   // NO USER FUNCTIONS START----------------------------------------------------------------------------------------------------------------------------------
   const incrementItemTemp = (info) => {

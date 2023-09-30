@@ -93,7 +93,7 @@ export default function DetailedPage({ info }) {
       setLocalData(temp);
       setIndexDB(index);
     }
-  }, [dispatch, session?.user.id, localdata.length]);
+  }, [session?.user.id, localdata.length]);
 
   useEffect(() => {
     if (session?.user.id) {
@@ -108,7 +108,7 @@ export default function DetailedPage({ info }) {
         setIndexDB(index);
       }
     }
-  }, [dispatch, info.title, session?.user.id, counter]);
+  }, [session?.user.id, counter]);
 
   // NO USER FUNCTIONS START --------------------------------------------------------------------------------------------
   // --CREATE

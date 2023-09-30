@@ -46,7 +46,7 @@ export default function AllCard({ data }) {
       dispatch(fetchCartArray(session?.user.id));
       dispatch(fetchCartItems(session?.user.id));
     }
-  }, [counter, session?.user.id, dispatch]);
+  }, [counter, session?.user.id]);
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();

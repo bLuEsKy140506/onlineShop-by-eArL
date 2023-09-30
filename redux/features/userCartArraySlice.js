@@ -87,6 +87,7 @@ export const cartArray = createSlice({
         localStorage.removeItem("cartNotLogIn");
         return state;
       } else if (action.payload[0] !== undefined && temp === null) {
+        localStorage.removeItem("cartNotLogIn");
         state = action.payload[0];
         return state;
       } else if (temp !== null && action.payload[0] === undefined) {
