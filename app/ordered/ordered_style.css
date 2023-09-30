@@ -1,12 +1,12 @@
 .ordered-container {
-  padding: 160px 80px 60px 80px;
+  padding: 190px 80px 60px 80px;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
-
 .ordered-header {
   color: #10131c;
-  /* Mail/H2 Bold 36pt */
+  /* Ma444il/H2 Bold 36pt */
   font-family: Arial;
   font-size: 36px;
   font-style: normal;
