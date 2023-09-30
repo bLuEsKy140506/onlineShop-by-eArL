@@ -250,7 +250,7 @@
   }
 
   .cart-container {
-    padding: 30px 10px;
+    padding: 130px 10px;
   }
 
   .cart-list-items {
@@ -272,6 +272,11 @@
   .switch-view {
     flex-direction: column;
   }
+
+  .cart-container {
+    padding: 100px 10px;
+  }
+
   .cart-item-brand-category {
     display: none;
   }
@@ -295,7 +300,7 @@
 
   .cart-list-items {
     flex-direction: row-reverse;
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .cart-footer {
     display: flex;
@@ -327,6 +332,6 @@
 @media screen and (max-width: 400px) {
   .cart-list-items {
     padding: 2px;
-    font-size: 0.5rem;
+    font-size: 0.3rem;
   }
 }

@@ -65,6 +65,7 @@ const Cart = () => {
   useEffect(() => {
     if (session?.user.id) {
       dispatch(fetchCartArray(session?.user.id));
+      dispatch(fetchCartItems(session?.user.id));
     }
   }, [counter, session?.user.id, dispatch]);
 
@@ -573,16 +574,16 @@ const Cart = () => {
             <span>Total: </span>
             <span> </span>
             <span>{sign}</span>
-            {items
-              ?.reduce(
+            {(
+              items?.reduce(
                 (acc, currentValue) =>
                   acc + currentValue.quantity * currentValue.price,
                 0
-              )
-              .toLocaleString("en-US", {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              })}
+              ) * rate
+            ).toLocaleString("en-US", {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}
           </div>
         )}
 
@@ -592,16 +593,16 @@ const Cart = () => {
             <span>Total: </span>
             <span> </span>
             <span>{sign}</span>
-            {localdata
-              ?.reduce(
+            {(
+              localdata?.reduce(
                 (acc, currentValue) =>
                   acc + currentValue.quantity * currentValue.price,
                 0
-              )
-              .toLocaleString("en-US", {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              })}
+              ) * rate
+            ).toLocaleString("en-US", {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}
           </div>
         )}
 
