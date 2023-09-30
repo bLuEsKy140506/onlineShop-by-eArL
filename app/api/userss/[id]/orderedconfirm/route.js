@@ -5,7 +5,7 @@ export const GET = async (request, { params }) => {
   try {
     await connectToDB();
 
-    const cart = await UserCart.find({ creator: params.id }).populate(
+    const cart = await Userorder.find({ creator: params.id }).populate(
       "creator"
     );
 
