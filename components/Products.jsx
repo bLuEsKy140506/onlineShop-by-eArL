@@ -95,7 +95,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
 
       try {
         const response = await fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${objId}`,
+          `${process.env.NEXTAUTH_URL}/api/cart/${objId}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -136,7 +136,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
       if (myCartClone.length === 0) {
         try {
           const response = await fetch(
-            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${objId}`,
+            `${process.env.NEXTAUTH_URL}/api/cart/${objId}`,
             {
               method: "DELETE",
             }
@@ -155,7 +155,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
 
         try {
           const response = await fetch(
-            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${objId}`,
+            `${process.env.NEXTAUTH_URL}/api/cart/${objId}`,
             {
               method: "PUT",
               body: JSON.stringify({
