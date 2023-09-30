@@ -397,7 +397,7 @@ export default function DetailedPage({ info }) {
       dispatch(setCounter(0));
     }
   };
-  console.log(items);
+  // console.log(items);
   sign = symbols[name];
   // LOG-IN USER FUNCTIONS END ----------------------------------------------------------------------------
   return (

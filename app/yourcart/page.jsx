@@ -62,12 +62,12 @@ const Cart = () => {
     }
   }, [dispatch, session?.user.id]);
 
-  useEffect(() => {
-    if (session?.user.id) {
-      dispatch(fetchCartArray(session?.user.id));
-      dispatch(fetchCartItems(session?.user.id));
-    }
-  }, [counter, session?.user.id, dispatch]);
+  // useEffect(() => {
+  //   if (session?.user.id) {
+  //     dispatch(fetchCartArray(session?.user.id));
+  //     dispatch(fetchCartItems(session?.user.id));
+  //   }
+  // }, [counter, session?.user.id, dispatch]);
 
   // NO USER FUNCTIONS START----------------------------------------------------------------------------------------------------------------------------------
   const incrementItemTemp = (info) => {
@@ -318,7 +318,7 @@ const Cart = () => {
       dispatch(fetchCartItems(session?.user.id));
     }
   };
-  console.log(items);
+  // console.log(items);
   return (
     <div className="cart-container">
       <h2 className="cart-header">Shopping Bag</h2>
