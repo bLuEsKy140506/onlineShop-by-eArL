@@ -1,13 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCartArray = createAsyncThunk("fetchCartArray", async (id) => {
-  const res = await fetch(
-    `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${id}/cart`,
-    {
-      cache: "no-store",
-      mode: "no-cors",
-    }
-  );
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/userss/${id}/cart`, {
+    cache: "no-store",
+    mode: "no-cors",
+  });
   let response = res.json();
   return response;
 });
@@ -70,7 +67,9 @@ export const cartArray = createSlice({
         const resultArray = Object.values(uniqueObjects);
 
         fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${action.payload[0]._id.toString()}`,
+          `${
+            process.env.NEXTAUTH_URL
+          }/api/cart/${action.payload[0]._id.toString()}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -94,17 +93,14 @@ export const cartArray = createSlice({
         state = action.payload[0];
         return state;
       } else if (temp !== null && action.payload[0] === undefined) {
-        fetch(
-          "https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/new",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              userId: action.meta.arg.toString(),
-              items: temp,
-              currency: initialRate,
-            }),
-          }
-        );
+        fetch("${process.env.NEXTAUTH_URL}/api/cart/new", {
+          method: "POST",
+          body: JSON.stringify({
+            userId: action.meta.arg.toString(),
+            items: temp,
+            currency: initialRate,
+          }),
+        });
         state = [
           {
             creator: action.meta.arg.toString(),

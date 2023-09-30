@@ -5,7 +5,6 @@ export const cartArrayConfirm = createSlice({
   initialState: [],
   reducers: {
     changeArrayConfirm(state, action) {
-      console.log(action.payload);
       state = action.payload;
       return state;
     },

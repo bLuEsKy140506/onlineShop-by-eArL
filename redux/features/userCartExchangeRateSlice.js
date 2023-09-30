@@ -4,7 +4,7 @@ export const fetchExchangeRate = createAsyncThunk(
   "fetchExchangeRate",
   async (id) => {
     const res = await fetch(
-      `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${id}/cart`,
+      `${process.env.NEXTAUTH_URL}/api/userss/${id}/cart`,
       {
         mode: "no-cors",
       }

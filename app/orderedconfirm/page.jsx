@@ -27,7 +27,7 @@ const MyConfirmedItems = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
-        `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${session?.user.id}/orderedconfirm`
+        `${process.env.NEXTAUTH_URL}/api/userss/${session?.user.id}/orderedconfirm`
       );
       const data = await response.json();
       setMyPosts(data);

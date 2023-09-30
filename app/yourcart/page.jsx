@@ -62,12 +62,12 @@ const Cart = () => {
     }
   }, [dispatch, session?.user.id]);
 
-  // useEffect(() => {
-  //   if (session?.user.id) {
-  //     dispatch(fetchCartArray(session?.user.id));
-  //     dispatch(fetchCartItems(session?.user.id));
-  //   }
-  // }, [counter, session?.user.id, dispatch]);
+  useEffect(() => {
+    if (session?.user.id) {
+      dispatch(fetchCartArray(session?.user.id));
+      dispatch(fetchCartItems(session?.user.id));
+    }
+  }, [counter, session?.user.id, dispatch]);
 
   // NO USER FUNCTIONS START----------------------------------------------------------------------------------------------------------------------------------
   const incrementItemTemp = (info) => {
@@ -151,7 +151,7 @@ const Cart = () => {
 
     try {
       const response = await fetch(
-        `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+        `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
         {
           method: "PUT",
           body: JSON.stringify({
@@ -183,7 +183,7 @@ const Cart = () => {
       };
       try {
         const response = await fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -216,7 +216,7 @@ const Cart = () => {
     if (myCartClone.length === 0) {
       try {
         const response = await fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
           {
             method: "DELETE",
           }
@@ -233,7 +233,7 @@ const Cart = () => {
     } else {
       try {
         const response = await fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -265,7 +265,7 @@ const Cart = () => {
     const timestamp = currentDate.getTime();
     try {
       const response = await fetch(
-        "https://onlineshopbyearl-bluesky140506.vercel.app/api/ordered/new",
+        "${process.env.NEXTAUTH_URL}/api/ordered/new",
         {
           method: "POST",
           body: JSON.stringify({
@@ -287,7 +287,7 @@ const Cart = () => {
 
         try {
           const response = await fetch(
-            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+            `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
             {
               method: "DELETE",
             }
@@ -568,9 +568,6 @@ const Cart = () => {
           ))}
       </ul>
       <div className="cart-footer">
-        {session?.user.id && items === undefined && (
-          <p>PLEASE REFRESH THIS PAGE AFTER YOU LOG-IN</p>
-        )}
         {/*LOG IN USER INTERFACE !!! TOTAL SECTION !!!=============================================================================================================== */}
         {session?.user.id && items === undefined && (
           <div className="cart-grand-total">
