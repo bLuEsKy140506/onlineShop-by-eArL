@@ -1,14 +1,18 @@
 import Userorder from "@/models/orderitem";
 import { connectToDB } from "@/utils/database";
 
-export const GET = async (request) => {
+export const GET = async (request, { params }) => {
   try {
     await connectToDB();
 
-    const order = await Userorder.find({}).populate("creator");
+    const cart = await UserCart.find({ creator: params.id }).populate(
+      "creator"
+    );
 
-    return new Response(JSON.stringify(order), { status: 200 });
+    return new Response(JSON.stringify(cart), { status: 200 });
   } catch (error) {
-    return new Response("Failed to fetch all prompts", { status: 500 });
+    return new Response("Failed to fetch prompts created by user", {
+      status: 500,
+    });
   }
 };
