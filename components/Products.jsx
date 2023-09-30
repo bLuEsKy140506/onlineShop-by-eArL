@@ -296,14 +296,15 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
           {items === undefined && myPosts.length !== 0 && (
             <>
               <Link href="/yourcart">
-                <p
+                <span
                   style={{
+                    fontSize: "8px",
                     color: "blue",
                     textDecoration: "underline",
                   }}
                 >
-                  CLICK TO VIEW CART
-                </p>
+                  VIEW CART
+                </span>
               </Link>
             </>
           )}

@@ -42,6 +42,20 @@ const Cart = () => {
   let dollarsToEuro = 1 / 1.056832;
 
   const [providers, setProviders] = useState(null);
+  const [myPosts, setMyPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch(
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${session?.user.id}/cart`
+      );
+      const data = await response.json();
+
+      setMyPosts(data);
+    };
+
+    if (session?.user.id) fetchPosts();
+  }, [session?.user.id]);
 
   //USE EFFECT SECTION ------------------------------------------------------------------------------------------------------------------------
   useEffect(() => {
@@ -322,8 +336,11 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <h2 className="cart-header">Shopping Bag</h2>
-      {(session?.user.id && items?.length === 0) ||
-        (items === undefined && session?.user.id && (
+      {items === undefined && myPosts.length !== 0 && (
+        <>{alert("Please refresh your page")}</>
+      )}
+      {(session?.user.id && items?.length === 0 && myPosts?.lenghh === 0) ||
+        (items === undefined && session?.user.id && myPosts?.length === 0 && (
           <h3>NO ITEM IN THE BAG</h3>
         ))}
       {session?.user.id && items !== undefined && (
