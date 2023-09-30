@@ -318,7 +318,7 @@ const Cart = () => {
       dispatch(fetchCartItems(session?.user.id));
     }
   };
-
+  console.log(items);
   return (
     <div className="cart-container">
       <h2 className="cart-header">Shopping Bag</h2>
@@ -568,8 +568,8 @@ const Cart = () => {
           ))}
       </ul>
       <div className="cart-footer">
-        {!session?.user.id && items === undefined && (
-          <p>PLEASE REFRESH YOUR BROWSER</p>
+        {session?.user.id && items === undefined && (
+          <p>PLEASE REFRESH THIS PAGE AFTER YOU LOG-IN</p>
         )}
         {/*LOG IN USER INTERFACE !!! TOTAL SECTION !!!=============================================================================================================== */}
         {session?.user.id && items === undefined && (

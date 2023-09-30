@@ -184,7 +184,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
   };
 
   sign = symbols[name];
-
+  console.log(items);
   return (
     <div className="card" key={`id-group`}>
       <Link href={`/products/${id}`}>
