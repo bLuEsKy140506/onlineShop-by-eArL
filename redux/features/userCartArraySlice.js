@@ -105,10 +105,7 @@ export const cartArray = createSlice({
           {
             creator: action.meta.arg.toString(),
             items: temp,
-            currency: {
-              name: "USD",
-              currency: initialRate,
-            },
+            currency: initialRate,
           },
         ];
         localStorage.removeItem("cartNotLogIn");
