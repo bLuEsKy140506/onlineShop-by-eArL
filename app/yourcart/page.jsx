@@ -233,7 +233,7 @@ const Cart = () => {
     } else {
       try {
         const response = await fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -579,7 +579,9 @@ const Cart = () => {
                 (acc, currentValue) =>
                   acc + currentValue.quantity * currentValue.price,
                 0
-              ) * rate
+              ) *
+              rate *
+              dollarsToEuro
             ).toLocaleString("en-US", {
               maximumFractionDigits: 2,
               minimumFractionDigits: 2,
@@ -598,7 +600,9 @@ const Cart = () => {
                 (acc, currentValue) =>
                   acc + currentValue.quantity * currentValue.price,
                 0
-              ) * rate
+              ) *
+              rate *
+              dollarsToEuro
             ).toLocaleString("en-US", {
               maximumFractionDigits: 2,
               minimumFractionDigits: 2,

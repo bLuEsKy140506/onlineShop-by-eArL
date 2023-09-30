@@ -300,10 +300,10 @@
 
   .cart-list-items {
     flex-direction: row-reverse;
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
 
-  .cart-list-items p {
+  .cart-list-items span {
     font-size: 0.4rem;
   }
   .cart-footer {
@@ -338,7 +338,7 @@
     padding: 2px;
   }
 
-  .cart-list-items p {
-    font-size: 0.2rem;
+  .cart-list-items span {
+    font-size: 0.4rem;
   }
 }
