@@ -279,7 +279,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
               </div>
             </Link>
           )}
-          {isMatch === true && session?.user.id && items !== undefined && (
+          {isMatch === true && session?.user.id && (
             <div className="add-cart-btnV3">
               <div className="flex items-center">
                 <svg
