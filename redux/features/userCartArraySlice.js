@@ -47,10 +47,6 @@ export const cartArray = createSlice({
     builder.addCase(fetchCartArray.fulfilled, (state, action) => {
       let temp = JSON.parse(localStorage.getItem("cartNotLogIn")); //isolated storage of users PC
 
-      //most frequent scenario --- have data in the database and no data in local
-      //next frequent scenario --- have data in the database and have data in local
-      //least frequent scenario --- have no data in the database and have data in local
-
       if (temp !== null && action.payload[0] !== undefined) {
         let merged = temp.concat(action.payload[0].items);
 
@@ -70,9 +66,7 @@ export const cartArray = createSlice({
         const resultArray = Object.values(uniqueObjects);
 
         fetch(
-          `${
-            process.env.NEXTAUTH_URL
-          }/api/cart/${action.payload[0]._id.toString()}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${action.payload[0]._id.toString()}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -96,14 +90,17 @@ export const cartArray = createSlice({
         state = action.payload[0];
         return state;
       } else if (temp !== null && action.payload[0] === undefined) {
-        fetch("${process.env.NEXTAUTH_URL}/api/cart/new", {
-          method: "POST",
-          body: JSON.stringify({
-            userId: action.meta.arg.toString(),
-            items: temp,
-            currency: initialRate,
-          }),
-        });
+        fetch(
+          "https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/new",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: action.meta.arg.toString(),
+              items: temp,
+              currency: initialRate,
+            }),
+          }
+        );
         state = [
           {
             creator: action.meta.arg.toString(),
