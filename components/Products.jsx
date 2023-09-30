@@ -27,7 +27,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
 
   const router = useRouter();
   const { data: session } = useSession();
-  const [myPosts, setMyPosts] = useState([]);
+
   const [isMatch, setIsMatch] = useState(false);
   const [indexDB, setIndexDB] = useState(0);
   const { name, rate } = useSelector((state) => state.exchangeValue);
@@ -58,19 +58,6 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
 
     setUpProviders();
   }, []);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch(
-        `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${session?.user.id}/cart`
-      );
-      const data = await response.json();
-
-      setMyPosts(data);
-    };
-
-    if (session?.user.id) fetchPosts();
-  }, [session?.user.id]);
 
   useEffect(() => {
     if (!session?.user.id && localStorage.getItem("cartNotLogIn") !== null) {
@@ -293,9 +280,6 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
             </Link>
           )}
 
-          {items === undefined && myPosts.length !== 0 && (
-            <>{alert("Please refresh your page")}</>
-          )}
           {isMatch === true && session?.user.id && items !== undefined && (
             <div className="add-cart-btnV3">
               <div className="flex items-center">

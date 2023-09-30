@@ -22,6 +22,7 @@ export default function AllCard({ data }) {
   const [ccount, setccount] = useState(6);
   const [filteredProduct, setFiltererdProduct] = useState(data);
   const [searchField, setSearchField] = useState("");
+  const [myPosts, setMyPosts] = useState([]);
   const { items, _id } = useSelector((state) => state.cartArray);
   const { counter } = useSelector((state) => state.cartItem);
   const { data: session } = useSession();
@@ -47,7 +48,18 @@ export default function AllCard({ data }) {
       dispatch(fetchCartItems(session?.user.id));
     }
   }, [counter, session?.user.id]);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch(
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${session?.user.id}/cart`
+      );
+      const data = await response.json();
 
+      setMyPosts(data);
+    };
+
+    if (session?.user.id) fetchPosts();
+  }, [session?.user.id]);
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
@@ -75,6 +87,9 @@ export default function AllCard({ data }) {
         </div>
       </div>
       <div>
+        {items === undefined && myPosts.length !== 0 && (
+          <>{alert("Please refresh your page")}</>
+        )}
         <SearchBox
           className="search-box"
           onChangeHandler={onSearchChange}
