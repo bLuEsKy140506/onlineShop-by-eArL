@@ -65,7 +65,7 @@ export default function DetailedPage({ info }) {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
-        `${process.env.NEXTAUTH_URL}/api/userss/${session?.user.id}/cart`
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/userss/${session?.user.id}/cart`
       );
       const data = await response.json();
 
@@ -226,7 +226,7 @@ export default function DetailedPage({ info }) {
       console.log("try");
       try {
         const response = await fetch(
-          "${process.env.NEXTAUTH_URL}/api/cart/new",
+          "https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/new",
           {
             method: "POST",
             body: JSON.stringify({
@@ -264,7 +264,7 @@ export default function DetailedPage({ info }) {
     } else {
       try {
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -310,7 +310,7 @@ export default function DetailedPage({ info }) {
     };
     try {
       const response = await fetch(
-        `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
         {
           method: "PUT",
           body: JSON.stringify({
@@ -397,7 +397,7 @@ export default function DetailedPage({ info }) {
       dispatch(setCounter(0));
     }
   };
-  // console.log(items);
+
   sign = symbols[name];
   // LOG-IN USER FUNCTIONS END ----------------------------------------------------------------------------
   return (

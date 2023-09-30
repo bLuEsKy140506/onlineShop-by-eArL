@@ -95,7 +95,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
 
       try {
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/cart/${objId}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${objId}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -136,7 +136,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
       if (myCartClone.length === 0) {
         try {
           const response = await fetch(
-            `${process.env.NEXTAUTH_URL}/api/cart/${objId}`,
+            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${objId}`,
             {
               method: "DELETE",
             }
@@ -155,7 +155,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
 
         try {
           const response = await fetch(
-            `${process.env.NEXTAUTH_URL}/api/cart/${objId}`,
+            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${objId}`,
             {
               method: "PUT",
               body: JSON.stringify({
@@ -184,7 +184,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
   };
 
   sign = symbols[name];
-  // console.log(items);
+
   return (
     <div className="card" key={`id-group`}>
       <Link href={`/products/${id}`}>

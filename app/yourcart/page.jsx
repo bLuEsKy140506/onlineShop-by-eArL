@@ -151,7 +151,7 @@ const Cart = () => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+        `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
         {
           method: "PUT",
           body: JSON.stringify({
@@ -183,7 +183,7 @@ const Cart = () => {
       };
       try {
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -216,7 +216,7 @@ const Cart = () => {
     if (myCartClone.length === 0) {
       try {
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
           {
             method: "DELETE",
           }
@@ -233,7 +233,7 @@ const Cart = () => {
     } else {
       try {
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -265,7 +265,7 @@ const Cart = () => {
     const timestamp = currentDate.getTime();
     try {
       const response = await fetch(
-        "${process.env.NEXTAUTH_URL}/api/ordered/new",
+        "https://onlineshopbyearl-bluesky140506.vercel.app/api/ordered/new",
         {
           method: "POST",
           body: JSON.stringify({
@@ -287,7 +287,7 @@ const Cart = () => {
 
         try {
           const response = await fetch(
-            `${process.env.NEXTAUTH_URL}/api/cart/${_id}`,
+            `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
             {
               method: "DELETE",
             }
@@ -318,7 +318,7 @@ const Cart = () => {
       dispatch(fetchCartItems(session?.user.id));
     }
   };
-  // console.log(items);
+
   return (
     <div className="cart-container">
       <h2 className="cart-header">Shopping Bag</h2>
