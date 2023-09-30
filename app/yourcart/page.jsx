@@ -568,8 +568,11 @@ const Cart = () => {
           ))}
       </ul>
       <div className="cart-footer">
+        {!session?.user.id && items === undefined && (
+          <p>PLEASE REFRESH YOUR BROWSER</p>
+        )}
         {/*LOG IN USER INTERFACE !!! TOTAL SECTION !!!=============================================================================================================== */}
-        {session?.user.id && items?.length !== 0 && (
+        {session?.user.id && items === undefined && (
           <div className="cart-grand-total">
             <span>Total: </span>
             <span> </span>

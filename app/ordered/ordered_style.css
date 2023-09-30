@@ -181,12 +181,12 @@
 
 @media screen and (max-width: 570px) {
   .ordered-container {
-    padding: 110px 10px 10px 10px;
+    padding: 90px 10px 10px 10px;
   }
 
   .ordered-flex-items {
-    display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
   }
   .ordered-container p {
     font-size: 1rem;
