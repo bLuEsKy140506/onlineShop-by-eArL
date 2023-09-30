@@ -3,7 +3,7 @@ import { connectToDB } from "@/utils/database";
 
 export const POST = async (request) => {
   const { userId, items, currency, timestamp } = await request.json();
-  console.log(timestamp);
+
   try {
     await connectToDB();
     const neworder = new Userorder({

@@ -224,7 +224,7 @@ const Cart = () => {
 
         if (response.ok) {
           updatedCart("delete");
-          localStorage.removeItem("cartNotLogIn");
+
           console.log("object deleted");
         }
       } catch (error) {
@@ -233,7 +233,7 @@ const Cart = () => {
     } else {
       try {
         const response = await fetch(
-          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${id}`,
+          `https://onlineshopbyearl-bluesky140506.vercel.app/api/cart/${_id}`,
           {
             method: "PUT",
             body: JSON.stringify({

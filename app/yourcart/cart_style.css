@@ -300,7 +300,7 @@
 
   .cart-list-items {
     flex-direction: row-reverse;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .cart-list-items span {
@@ -339,6 +339,6 @@
   }
 
   .cart-list-items span {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
