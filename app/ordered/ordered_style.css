@@ -4,6 +4,12 @@
   justify-content: space-between;
   flex-direction: column;
 }
+
+.ordered-flex-items {
+  display: flex;
+  justify-items: center;
+}
+
 .ordered-header {
   color: #10131c;
   /* Ma444il/H2 Bold 36pt */

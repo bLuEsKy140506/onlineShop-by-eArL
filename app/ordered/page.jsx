@@ -25,47 +25,49 @@ const MyOrdered = () => {
       )}
       {items?.length !== 0 && (
         <>
-          <div>
-            <h2 className="ordered-header">The order is placed</h2>
+          <div className="ordered-container">
+            <div className="ordered-flex-items">
+              <h2 className="ordered-header">The order is placed</h2>
 
-            <div>
-              <p className="ordered-description">
-                Thank you for ordering. We will ship it in 1–2 days and send you
-                a follow-up email to track the delivery.
-              </p>
-            </div>
+              <div>
+                <p className="ordered-description">
+                  Thank you for ordering. We will ship it in 1–2 days and send
+                  you a follow-up email to track the delivery.
+                </p>
+              </div>
 
-            <ul className="ordered-list-container">
-              {items?.length !== 0 &&
-                items?.map((item, index) => (
-                  <li key={`${item.title}`}>
-                    <div className="ordered-list-items">
-                      <figure className="cart-thumbnail-container">
-                        <Image
-                          src={item.thumbnail}
-                          alt={`${item.title}${index}`}
-                          width={140}
-                          height={100}
-                        />
-                      </figure>
-                      <div className="cart-item-title-brand-cat">
-                        <p className="ordered-item-title"> {item.title}</p>
+              <ul className="ordered-list-container">
+                {items?.length !== 0 &&
+                  items?.map((item, index) => (
+                    <li key={`${item.title}`}>
+                      <div className="ordered-list-items">
+                        <figure className="cart-thumbnail-container">
+                          <Image
+                            src={item.thumbnail}
+                            alt={`${item.title}${index}`}
+                            width={140}
+                            height={100}
+                          />
+                        </figure>
+                        <div className="cart-item-title-brand-cat">
+                          <p className="ordered-item-title"> {item.title}</p>
 
-                        <div className="ordered-item-brand-category">
-                          <span className="ordered-item-brand">
-                            {item.quantity}{" "}
-                            {item.quantity === 1 ? "item" : "items"}
-                          </span>
+                          <div className="ordered-item-brand-category">
+                            <span className="ordered-item-brand">
+                              {item.quantity}{" "}
+                              {item.quantity === 1 ? "item" : "items"}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                ))}
-            </ul>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <figure className="img-ordered">
+              <Image src={imgPacked} alt="delivery-image" />
+            </figure>
           </div>
-          <figure className="img-ordered">
-            <Image src={imgPacked} alt="delivery-image" />
-          </figure>
         </>
       )}
 
