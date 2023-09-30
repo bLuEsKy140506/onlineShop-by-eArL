@@ -51,10 +51,7 @@ export const cartArray = createSlice({
       //next frequent scenario --- have data in the database and have data in local
       //least frequent scenario --- have no data in the database and have data in local
 
-      if (action.payload[0] !== undefined && temp === null) {
-        state = action.payload[0];
-        return state;
-      } else if (temp !== null && action.payload[0] !== undefined) {
+      if (temp !== null && action.payload[0] !== undefined) {
         let merged = temp.concat(action.payload[0].items);
 
         const uniqueObjects = {};
@@ -92,6 +89,9 @@ export const cartArray = createSlice({
           },
         ];
         localStorage.removeItem("cartNotLogIn");
+        return state;
+      } else if (action.payload[0] !== undefined && temp === null) {
+        state = action.payload[0];
         return state;
       } else if (temp !== null && action.payload[0] === undefined) {
         fetch(
