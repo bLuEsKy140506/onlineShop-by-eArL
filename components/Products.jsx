@@ -294,19 +294,7 @@ export default function Products({ info, items, onUpdateCartItem, objId }) {
           )}
 
           {items === undefined && myPosts.length !== 0 && (
-            <>
-              <Link href="/yourcart">
-                <span
-                  style={{
-                    fontSize: "8px",
-                    color: "blue",
-                    textDecoration: "underline",
-                  }}
-                >
-                  VIEW CART
-                </span>
-              </Link>
-            </>
+            <>{alert("Please refresh your page")}</>
           )}
           {isMatch === true && session?.user.id && items !== undefined && (
             <div className="add-cart-btnV3">
